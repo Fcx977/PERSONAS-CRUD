@@ -1,0 +1,65 @@
+﻿@model TALLERCON.Models.Persona
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="text-danger">¿Está seguro de eliminar la persona?</h3>
+<hr />
+<div class="row">
+    <div class="col-sm-4">
+
+        <form asp-action="Eliminar" asp-controller="Home" method="post">
+            <input type="hidden" asp-for="DocIdentificacion" />
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="Nombres">Nombres</label>
+                <input class="form-control form-control-sm" asp-for="Nombres" type="text" disabled />
+
+
+            </div>
+            <div class="mb-2">
+                <label class="form-label" asp-for="Apellidos">Apellidos</label>
+                <input class="form-control form-control-sm" asp-for="Apellidos" type="text" disabled />
+
+
+            </div>
+            <div class="mb-2">
+                <label class="form-label" asp-for="Credencial">Credencial</label>
+                <input class="form-control form-control-sm" asp-for="Credencial" type="text" disabled />
+
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="IdRol">Rol</label>
+                <input class="form-control form-control-sm" asp-for="oRol.Descripcion" type="text" disabled />
+
+
+
+            </div>
+            <div class="mb-2">
+                <label class="form-label" asp-for="CiudadDireccion">Ciudad Direccion</label>
+                <input class="form-control form-control-sm" asp-for="CiudadDireccion" type="text" disabled />
+
+
+            </div>
+            <div class="mb-2">
+                <label class="form-label" asp-for="CorreoNivelEstudio">Correo Nivel Estudios</label>
+                <input class="form-control form-control-sm" asp-for="CorreoNivelEstudio" type="text" disabled />
+
+
+            </div>
+            <div class="mb-2">
+               
+                    <button class="btn btn-danger btn-sm w-25" type="submit">Eliminar</button>
+                
+                <a class="btn btn-dark btn-sm" asp-action="Index" asp-controller="Home">Volver</a>
+
+
+
+            </div>
+
+        </form>
+
+    </div>
+</div>

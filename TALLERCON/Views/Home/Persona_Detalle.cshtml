@@ -1,0 +1,84 @@
+﻿@model TALLERCON.Models.View_Models.PersonaVM
+@{
+    ViewData["Title"] = "Persona_Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if(Model.oPersona.DocIdentificacion == 0)
+{
+    <h1>Crear Persona</h1>
+}
+else{
+        <h1>Editar Persona</h1>
+
+   }
+
+<div class="row">
+    <div class="col-sm-4">
+
+        <form asp-action="Persona_Detalle" asp-controller="Home" method="post">
+            <input type="hidden" asp-for="oPersona.DocIdentificacion" />
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="oPersona.Nombres">Nombres</label>
+                <input class="form-control form-control-sm" asp-for="oPersona.Nombres" type="text" />
+
+
+            </div>
+            <div class="mb-2">
+                <label class="form-label" asp-for="oPersona.Apellidos">Apellidos</label>
+                <input class="form-control form-control-sm" asp-for="oPersona.Apellidos" type="text" />
+
+
+            </div>
+            <div class="mb-2">
+                <label class="form-label" asp-for="oPersona.Credencial">Credencial</label>
+                <input class="form-control form-control-sm" asp-for="oPersona.Credencial" type="text" />
+
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="oPersona.IdRol">Rol</label>
+                <select class="form-select form-select-sm" asp-for="oPersona.IdRol" asp-items="@Model.oListaRol">
+                    <option selected disabled>-- Seleccionar --</option>
+
+                </select>
+
+
+            </div>
+            <div class="mb-2">
+                <label class="form-label" asp-for="oPersona.CiudadDireccion">Ciudad Direccion</label>
+                <input class="form-control form-control-sm" asp-for="oPersona.CiudadDireccion" type="text" />
+
+
+            </div>
+            <div class="mb-2">
+                <label class="form-label" asp-for="oPersona.CorreoNivelEstudio">Correo Nivel Estudios</label>
+                <input class="form-control form-control-sm" asp-for="oPersona.CorreoNivelEstudio" type="text" />
+
+
+            </div>
+            <div class="mb-2">
+                @if (Model.oPersona.DocIdentificacion == 0)
+                {
+                    <button class="btn btn-primary btn-sm w-25" type="submit">Crear</button>
+
+                }
+                else
+                {
+                    <button class="btn btn-primary btn-sm w-25" type="submit">Actualizar</button>
+                }
+                <a class="btn btn-dark btn-sm" asp-action="Index" asp-controller="Home">Volver</a>
+
+
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+
+
